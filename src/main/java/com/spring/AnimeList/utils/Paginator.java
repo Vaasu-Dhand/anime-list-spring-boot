@@ -1,5 +1,6 @@
 package com.spring.AnimeList.utils;
 
-public class Utils {
+public class Paginator {
 
 }
+
