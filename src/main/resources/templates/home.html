@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>my Anime List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Bootstrap CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+
+<p th:text="${testName}"></p>
+<table class="container table table-striped">
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Type</th>
+        <th scope="col">Episodes</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Members</th>
+    </tr>
+    <tr th:each="anime : ${animeList}">
+        <td th:text="${anime.id}"></td>
+        <td th:text="${anime.name}"></td>
+        <td>
+            <span th:each="genre: ${anime.genre}">
+                <span th:text="${genre}" class="badge rounded-pill text-bg-secondary"></span>
+            </span>
+        </td>
+        <td th:text="${anime.type}"></td>
+        <td th:text="${anime.episodes}"></td>
+        <td th:text="${anime.rating}"></td>
+        <td th:text="${anime.members}"></td>
+    </tr>
+</table>
+
+</body>
+
+</html>
