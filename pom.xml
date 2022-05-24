@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.spring</groupId>
-	<artifactId>CoronaVirusTracker</artifactId>
+	<artifactId>AnimeList</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CoronaVirusTracker</name>
-	<description>Corona Virus Tracker using Spring Boot</description>
+	<name>AnimeList</name>
+	<description>Anime List Application using Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -30,18 +30,22 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.5.11</version>
-		</dependency>
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<version>4.5.11</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-csv</artifactId>
+		<version>1.8</version>
+	</dependency>
 	</dependencies>
 
 	<build>
