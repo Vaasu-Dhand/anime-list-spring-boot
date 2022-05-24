@@ -1,6 +1,7 @@
 package com.spring.AnimeList.service;
 
 import com.spring.AnimeList.model.AnimeTitle;
+import com.spring.AnimeList.utils.Utils.NameComparator;
 import com.spring.AnimeList.utils.Utils;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
@@ -16,6 +17,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static java.lang.Float.parseFloat;
@@ -24,12 +27,19 @@ import static java.lang.Long.parseLong;
 
 @Service    // Creates a Spring Service
 public class AnimeService {
+
+
+    private int trimLength = 5;
     private static final String URL = "https://raw.githubusercontent.com/nestor94/animender/master/data/anime.csv";
     private List<AnimeTitle> animeList = new ArrayList<>();
 
-    // This should sort by name
     public List<AnimeTitle> getAnimeList() {
-        return animeList.subList(0, 50);
+        return animeList;
+    }
+
+
+    public List<AnimeTitle> getAnimeList(int takeFrom, int takeTo) {
+        return animeList.subList(takeFrom, takeTo);
     }
 
 
@@ -64,6 +74,8 @@ public class AnimeService {
                 }
                 localAnimeList.add(animeTitle);
             }
+            // Sort by name
+            localAnimeList.sort(new NameComparator());
             this.animeList = localAnimeList;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -72,4 +84,13 @@ public class AnimeService {
         }
 
     }
+
+    public int getTrimLength() {
+        return trimLength;
+    }
+
+    public void setTrimLength(int trimLength) {
+        this.trimLength = trimLength;
+    }
+
 }

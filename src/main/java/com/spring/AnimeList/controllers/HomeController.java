@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @Controller // This Annotation makes the class a Spring Controller. This is different from @RestController
 public class HomeController {
 
@@ -14,8 +15,7 @@ public class HomeController {
 
     @GetMapping("/")    // Call this method when / route is hit
     public String home(Model model) {
-        System.out.println(animeService.getAnimeList());
-        model.addAttribute("animeList", animeService.getAnimeList());
+        model.addAttribute("animeList", animeService.getAnimeList(50, 150));
         return "home"; // This has to return the name of the view it wants to render
     }
 }

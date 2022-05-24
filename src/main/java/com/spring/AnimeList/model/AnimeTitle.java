@@ -1,6 +1,7 @@
 package com.spring.AnimeList.model;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class AnimeTitle {
@@ -68,5 +69,5 @@ public class AnimeTitle {
         this.members = members;
     }
 
-
 }
+
